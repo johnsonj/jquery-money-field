@@ -15,14 +15,16 @@
       var opt;
       opt = $.extend(defaults, params);
       return this.each(function() {
-        var $val;
+        var $val, cursor_pos;
         if ($(this).data('money-field')) {
           return this;
         }
         $(this).data('money-field', opt);
         $(this).keyup(update_value_field);
+        cursor_pos = $(this).caret().start;
         $val = get_value_field.call(this);
         $(this).val(convert_actual_to_friendly.call($val, opt.prefix));
+        $(this).caret(cursor_pos, cursor_pos);
         return this;
       });
     }

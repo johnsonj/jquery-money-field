@@ -19,8 +19,11 @@ $.fn.extend \
 	  	$(this).keyup update_value_field
 
 	  	# Set initial value
+	  	cursor_pos = $(this).caret().start;
 	  	$val = get_value_field.call(this)
 	  	$(this).val(convert_actual_to_friendly.call($val, opt.prefix))
+	  	$(this).caret(cursor_pos,cursor_pos)
+
 
 	  	this
 
