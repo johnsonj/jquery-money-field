@@ -4,6 +4,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
 		<!-- Now this is us right here -->
+		<script src="jquery.caret.1.02.js"> </script>
 		<script src="jquery.moneyfield.js"> </script>
 		
 	</head>
@@ -12,14 +13,22 @@
 		<h1>jquery.moneyfield</h1>
 		<p>jquery-money-field helps you get paid.</p>
 
-
+		<h1>Blank Default Value</h1>
 		<div class="example">
 			<input id="example1" type="text">
 			<input type="hidden" name="example" data-money-field>
 		</div>
+
+		<h1>Existing Value, Custom Prefix</h1>
+		<div class="example">
+			<input id="example2" type="text">
+			<input type="hidden" name="example" data-money-field value="1234">
+		</div>
+
 	<script>
 		$(function() {
 			$('#example1').moneyfield();
+			$('#example2').moneyfield({prefix: 'Cash: '})
 		});
 	</script>	
 	
