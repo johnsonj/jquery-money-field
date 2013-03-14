@@ -17,6 +17,7 @@ $.fn.extend \
 
   		# Bind to update on keys
 	  	$(this).keyup update_value_field
+	  	$(this).keypress block_invalid_chars
 
 	  	# Set initial value
 	  	cursor_pos = $(this).caret().start;
@@ -35,6 +36,8 @@ convert_input_to_actual = (prefix)->
 
 convert_actual_to_friendly = (prefix)->
 	dollars = $(this).val()/100
+	if dollars == NaN
+		dollars = 0
 
 	"#{prefix}#{dollars.toFixed(2)}"
 
@@ -48,3 +51,9 @@ update_value_field = ->
 	$(this).val(convert_actual_to_friendly.call($val, prefix))
 
 	$(this).caret(cursor_pos,cursor_pos)
+
+block_invalid_chars = (e)->
+	if (isNaN(String.fromCharCode(e.which)) && String.fromCharCode(e.which) != ".")
+		return false
+
+	true
