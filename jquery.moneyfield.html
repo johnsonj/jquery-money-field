@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>jquery.moneyfield - get money, get paid</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+		<!-- Now this is us right here -->
+		<script src="jquery.moneyfield.js"> </script>
+		
+	</head>
+	
+	<body>
+		<h1>jquery.moneyfield</h1>
+		<p>jquery-money-field helps you get paid.</p>
+
+
+		<div class="example">
+			<input id="example1" type="text">
+			<input type="hidden" name="example" data-money-field>
+		</div>
+	<script>
+		$(function() {
+			$('#example1').moneyfield();
+		});
+	</script>	
+	
+	</body>
+</html>
